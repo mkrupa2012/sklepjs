@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Sklep internetowy JavaScript</title>
+
+	<link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
+</head>
+<body>
+
+<div class="container">
+	<div class="row navi">
+		<div class="col-sm-12">
+			<div class="navbar navbar-default" role="navigation">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-sm-2">
+							<div class="navbar-header">
+								<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+									<span class="sr-only">Toggle navigation</span>
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+								</button>
+								<a class="navbar-brand" href="index.html">Zegarki</a>
+							</div>
+						</div>
+						<div class="col-sm-10">
+							<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+								<ul class="nav navbar-nav navbar-right">
+									<li class="menu"><a href="index.html">Home</a></li>
+									<li class="menu"><a href="#">Zegarki</a></li>
+									<li class="menu"><a href="#">Regulamin</a></li>
+									<li class="menu"><a href="#">Kontakt</a></li>
+									<li class="koszyk"><a href="#" data-toggle="modal" data-target="#myModal"><i class="fas fa-shopping-basket">&nbsp;&nbsp;</i>Koszyk (<span class="simpleCart_quantity"></span>)</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="baner">
+			<img src="img/Untitled1.jpg" alt="">
+		</div>
+
+	</div>
+
+	<div class="container sortowanie">
+		<label>Producent:</label>
+		<div class="controls btn-group">
+			<button class="filter btn btn-sm btn-danger" data-filter="all">All</button>
+			<button class="filter btn btn-sm btn-danger" data-filter=".Diesel">Diesel</button>
+			<button class="filter btn btn-sm btn-danger" data-filter=".Chanel">Chanel</button>
+			<button class="filter btn btn-sm btn-danger" data-filter=".Armani">Armani</button>
+			<button class="filter btn btn-sm btn-danger" data-filter=".Atlantic">Atlantic</button>
+		</div>
+		
+		<div class="pull-right">
+			<label>Cena:</label>
+			<div class="controls btn-group">
+				<button class="sort btn btn-sm btn-danger" data-sort="price:asc">Rosnąco</button>
+				<button class="sort btn btn-sm btn-danger" data-sort="price:desc">Malejąco</button>
+			</div>
+		</div>
+	</div>
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h4 class="modal-title" id="myModalLabel">Koszyk <span class="showIfEmpty">jest pusty</span></h4>
+			</div>
+
+			<div class="hideIfEmpty">
+				<div class="modal-body">
+					<div class="simpleCart_items"></div>
+					<table class="table table-striped">
+						<thead>
+							<tr>
+								<th>Łącznie</th>
+								<th>Koszty przesyłki</th>
+								<th>Do zapłaty</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><div class="simpleCart_total"></div></td>
+								<td><div class="simpleCart_shipping"></div></td>
+								<td><div class="simpleCart_grandTotal"></div></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+
+				<div class="modal-footer">
+					<a href="javascript:;" class="simpleCart_empty btn btn-default">Opróżnij koszyk</a>
+					<a href="javascript:;" class="simpleCart_checkout btn btn-primary">Złóż zamówienie</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="Container" class="container">		
+
+	<div class="row">
+		<div class="col-md-4 text-center mix Diesel" data-price="1150">
+			<div class="simpleCart_shelfItem">
+				<div class="row">
+					<div class="col-xs-12">
+						<h3 class="item_name">Diesel DZ7315</h3>
+						<img class="item_thumb" src="img/DZ7315_4m.png" alt="">
+						<h5>Nowoczesny zegarek marki Diesel, idealny na spotkanie towarzyskie.</h5>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-12">
+						<h3 class="item_price">1150 zł</h3>  
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-3">
+						<input type="button" class="item_add btn btn-info" value="Opis">
+					</div>
+					<div class="col-xs-4">
+						<input type="text" value="1" class="item_Quantity form-control" placeholder="ilość">
+					</div>
+					<div class="col-xs-5">
+						<input type="button" class="item_add btn btn-success" value="Do koszyka">
+					</div>   
+				</div>
+			</div>
+		</div>
+
+		<div class="col-md-4 text-center mix Chanel" data-price="985">
+			<div class="simpleCart_shelfItem">
+				<div class="row">
+					<div class="col-xs-12">
+						<h3 class="item_name">Chanel H5254</h3>
+						<img class="item_thumb" src="img/chanel_h5254a.png" alt="">
+						<h5>Zegarek damski z nietuzinkowym designem, do pracy lub na spotkanie.</h5>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-12">
+						<h3 class="item_price">985 zł</h3>  
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-3">
+						<input type="button" class="item_add btn btn-info" value="Opis">
+					</div>
+					<div class="col-xs-4">
+						<input type="text" value="1" class="item_Quantity form-control" placeholder="ilość">
+					</div>
+					<div class="col-xs-5">
+						<input type="button" class="item_add btn btn-success" value="Do koszyka">
+					</div>   
+				</div>
+			</div>
+		</div>
+
+		<div class="col-md-4 text-center mix Armani" data-price="825">
+			<div class="simpleCart_shelfItem">
+				<div class="row">
+					<div class="col-xs-12">
+						<h3 class="item_name">Armani AR5860</h3>
+						<img class="item_thumb" src="img/emporio_blue.png" alt="">
+						<h5>Codzienny zegarek marki Armani. Idealny na prezent.</h5>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-12">
+						<h3 class="item_price">825 zł</h3>  
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-4">
+						<input type="button" class="item_add btn btn-info" value="Opis">
+					</div>
+					<div class="col-xs-3">
+						<input type="text" value="1" class="item_Quantity form-control" placeholder="ilość">
+					</div>
+					<div class="col-xs-5">
+						<input type="button" class="item_add btn btn-success" value="Do koszyka">
+					</div>   
+				</div>
+			</div>
+		</div>
+
+		<div class="col-md-4 text-center mix Atlantic" data-price="1295">
+			<div class="simpleCart_shelfItem">
+				<div class="row">
+					<div class="col-xs-12">
+						<h3 class="item_name">Atlantic 1888</h3>
+						<img class="item_thumb" src="img/atlantic_1888.png" alt="">
+						<h5>Klasyczny zegarek marki Atlantic, z pięknym skórzanym paskiem.</h5>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-12">
+						<h3 class="item_price">1295 zł</h3>  
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-3">
+						<input type="button" class="item_add btn btn-info" value="Opis">
+					</div>
+					<div class="col-xs-4">
+						<input type="text" value="1" class="item_Quantity form-control" placeholder="ilość">
+					</div>
+					<div class="col-xs-5">
+						<input type="button" class="item_add btn btn-success" value="Do koszyka">
+					</div>   
+					</div>
+			</div>
+		</div>
+
+		<div class="col-md-4 text-center mix Armani" data-price="985.00">
+			<div class="simpleCart_shelfItem">
+				<div class="row">
+					<div class="col-xs-12">
+						<h3 class="item_name">Armani GH456</h3>
+						<img class="item_thumb" src="img/emporio_brown.png" alt="">
+						<h5>Złoty zegarek firmy Giorgio Armani. Najlepszy wybór na specjalne okazje.</h5>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-12">
+						<h3 class="item_price">985 zł</h3>  
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-3">
+						<input type="button" class="item_add btn btn-info" value="Opis">
+					</div>
+					<div class="col-xs-4">
+						<input type="text" value="1" class="item_Quantity form-control" placeholder="ilość">
+					</div>
+					<div class="col-xs-5">
+						<input type="button" class="item_add btn btn-success" value="Do koszyka">
+					</div>   
+				</div>
+			</div>
+		</div>
+
+		<div class="col-md-4 text-center mix Diesel" data-price="955">
+			<div class="simpleCart_shelfItem">
+				<div class="row">
+					<div class="col-xs-12">
+						<h3 class="item_name">Diesel DZ7395</h3>
+						<img class="item_thumb" src="img/DZ7395_4m.png" alt="">
+						<h5>Ultra designerski i kolorowy zegarek marki Diesel dla mężczyzn.</h5>
+					</div>
+				</div>
+				<div class="row">
+						<div class="col-xs-12">
+							<h3 class="item_price">955 zł</h3>  
+						</div>
+				</div>
+
+				<div class="row">
+					<div class="col-xs-3">
+						<input type="button" class="item_add btn btn-info" value="Opis">
+					</div>
+					<div class="col-xs-4">
+						<input type="text" value="1" class="item_Quantity form-control" placeholder="ilość">
+					</div>
+					<div class="col-xs-5">
+						<input type="button" class="item_add btn btn-success" value="Do koszyka">
+					</div>   
+				</div>
+			</div>
+		</div>
+
+		<div class="col-md-4 text-center mix Diesel" data-price="1150">
+			<div class="simpleCart_shelfItem">
+				<div class="row">
+					<div class="col-xs-12">
+						<h3 class="item_name">Diesel DZ7312</h3>
+						<img class="item_thumb" src="img/DZ7312_4m.png" alt="">
+						<h5>Zegarek marki Diesel dla mężczyzn z miedzianymi dodatkami na tarczy.</h5>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-12">
+						<h3 class="item_price">1150 zł</h3>  
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-3">
+						<input type="button" class="modal2 btn btn-info" value="Opis">
+					</div>
+					<div class="col-xs-4">
+						<input type="text" value="1" class="item_Quantity form-control" placeholder="ilość">
+					</div>
+					<div class="col-xs-5">
+						<input type="button" class="item_add btn btn-success" value="Do koszyka">
+					</div>   
+				</div>
+			</div>
+		</div>
+
+		<div class="col-md-4 text-center mix Atlantic" data-price="1150">
+			<div class="simpleCart_shelfItem">
+				<div class="row">
+					<div class="col-xs-12">
+						<h3 class="item_name">Atlantic 29038</h3>
+						<img class="item_thumb" src="img/atlantic_29038.png" alt="">
+						<h5>Złoty zegarek marki Atlantic dla kobiet. Perfekcyjny wybór do pracy.</h5>
+					</div>
+				</div>
+				<div class="row">
+						<div class="col-xs-12">
+							<h3 class="item_price">1150 zł</h3>  
+						</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-3">
+						<input type="button" class="modal2 btn btn-info" value="Opis">
+					</div>
+					<div class="col-xs-4">
+						<input type="text" value="1" class="item_Quantity form-control" placeholder="ilość">
+					</div>
+					<div class="col-xs-5">
+						<input type="button" class="item_add btn btn-success" value="Do koszyka">
+					</div>   
+				</div>
+			</div>
+		</div>
+
+		<div class="col-md-4 text-center mix Armani" data-price="1150">
+			<div class="simpleCart_shelfItem">
+				<div class="row">
+					<div class="col-xs-12">
+						<h3 class="item_name">Armani 1737</h3>
+						<img class="item_thumb" src="img/armani_1737.png" alt="">
+						<h5>Klasa sama w sobie. Uniwersalny zegarek marki Armani dla mężczyzn.</h5>
+					</div>
+				</div>
+				<div class="row">
+						<div class="col-xs-12">
+							<h3 class="item_price">1150 zł</h3>  
+						</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-3">
+						<input type="button" class="modal2 btn btn-info" value="Opis">
+					</div>
+					<div class="col-xs-4">
+						<input type="text" value="1" class="item_Quantity form-control" placeholder="ilość">
+					</div>
+					<div class="col-xs-5">
+						<input type="button" class="item_add btn btn-success" value="Do koszyka">
+					</div>   
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>
+
+<div class="container">
+	<nav class="navbar navbar-default" role="navigation">
+		<div class="footer">
+			<p class="footer-text">Copyright reserved. 2018</p>
+		</div>
+	</nav>
+</div>
+
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+		<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+		<script src="js/simpleCart.js"></script>
+		<script src="http://cdn.jsdelivr.net/jquery.mixitup/latest/jquery.mixitup.min.js?v=2.1.2"></script>
+		<script>
+simpleCart({
+	// array representing the format and columns of the cart,
+	// see the cart columns documentation
+	cartColumns: [
+		{ attr: "name", label: "Produkt"},
+		{ view:'image' , attr:'thumb', label: false},
+		{ view: "currency", attr: "price", label: "Cena"},
+		{ view: "decrement", label: false, text: '<span class="glyphicon glyphicon-minus"></span>'},
+		{ attr: "quantity", label: "Ilość"},
+		{ view: "increment", label: false, text: '<span class="glyphicon glyphicon-plus"></span>'},
+		{ view: "currency", attr: "total", label: "Razem" },
+		{ view: "remove", text: '<span class="glyphicon glyphicon-remove"></span>', label: false}
+	],
+
+	// "div" or "table" - builds the cart as a 
+	// table or collection of divs
+	cartStyle: "table", 
+
+	// how simpleCart should checkout, see the 
+	// checkout reference for more info 
+	checkout: { 
+		type: "PayPal" , 
+		email: "sklepjs@email.com" 
+	},
+
+	// set the currency, see the currency 
+	// reference for more info
+	currency: "PLN",
+
+	// collection of arbitrary data you may want to store 
+	// with the cart, such as customer info
+	data: {},
+
+	// set the cart langauge 
+	// (may be used for checkout)
+	language: "english-us",
+
+	// array of item fields that will not be 
+	// sent to checkout
+	excludeFromCheckout: [],
+
+	// custom function to add shipping cost
+	shippingCustom: null,
+
+	// flat rate shipping option
+	shippingFlatRate: 15,
+
+	// added shipping based on this value 
+	// multiplied by the cart quantity
+	shippingQuantityRate: 0,
+
+	// added shipping based on this value 
+	// multiplied by the cart subtotal
+	shippingTotalRate: 0,
+
+	// tax rate applied to cart subtotal
+	taxRate: 0,
+
+	// true if tax should be applied to shipping
+	taxShipping: false,
+
+	// event callbacks 
+	beforeAdd     : null,
+	afterAdd      : null,
+	load        : null,
+	beforeSave    : null,
+	afterSave     : null,
+	update      : null,
+	ready     : null,
+	checkoutSuccess : null,
+	checkoutFail    : null,
+	beforeCheckout    : null,
+				beforeRemove           : null
+});
+
+// basic callback example
+simpleCart.bind( "afterAdd" , function(){
+	$( ".koszyk" ).fadeOut(500).fadeIn(500);
+});
+
+simpleCart.bind( 'update' , function(){
+	if (simpleCart.quantity() == 0)
+	{
+		$( ".hideIfEmpty" ).hide();
+		$( ".showIfEmpty" ).show();
+	}
+	else
+	{
+		$( ".hideIfEmpty" ).show();
+		$( ".showIfEmpty" ).hide();    
+	}
+});
+
+$(function(){
+	$('#Container').mixItUp();
+});
+</script>
+
+	</body>
+</html>
